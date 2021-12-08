@@ -15,7 +15,6 @@ android {
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     kotlinOptions {
@@ -46,8 +45,4 @@ android {
 
 dependencies {
     compileOnly 'androidx.recyclerview:recyclerview:1.2.1'
-
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }

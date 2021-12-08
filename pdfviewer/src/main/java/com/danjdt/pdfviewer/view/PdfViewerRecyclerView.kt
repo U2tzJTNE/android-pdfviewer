@@ -166,7 +166,7 @@ class PdfViewerRecyclerView(context: Context) :
         override fun onScale(detector: ScaleGestureDetector): Boolean {
             if (mIsZoomEnabled) {
                 mScaleFactor *= detector.scaleFactor
-                mScaleFactor = Math.max(mMinZoom, Math.min(mScaleFactor, mMaxZoom))
+                mScaleFactor = mMinZoom.coerceAtLeast(mScaleFactor.coerceAtMost(mMaxZoom))
                 mMaxWidth = mWidth - mWidth * mScaleFactor
                 invalidate()
             }
@@ -177,7 +177,7 @@ class PdfViewerRecyclerView(context: Context) :
     override fun onScrolled(dx: Int, dy: Int) {
         super.onScrolled(dx, dy)
         val position = (layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
-        if(position != mPosition && position != -1) {
+        if (position != mPosition && position != -1) {
             mPosition = position
             mOnPageChangedListener?.onPageChanged(mPosition + 1, adapter?.itemCount ?: 0)
         }

@@ -15,7 +15,6 @@ import com.danjdt.pdfviewer.interfaces.OnErrorListener
 import com.danjdt.pdfviewer.interfaces.OnPageChangedListener
 import com.danjdt.pdfviewer.interfaces.PdfViewInterface
 import com.danjdt.pdfviewer.utils.PdfPageQuality
-import com.danjdt.pdfviewer.utils.Utils
 import com.danjdt.pdfviewer.view.PdfViewerRecyclerView
 import java.io.File
 import java.io.IOException
@@ -95,32 +94,32 @@ class PdfViewer private constructor(private val mRootView: ViewGroup) : OnLoadFi
 
         private var onErrorListener: OnErrorListener? = null
 
-        fun view(pdfView: PdfViewInterface): PdfViewer.Builder {
+        fun view(pdfView: PdfViewInterface): Builder {
             this.pdfView = pdfView
             return this
         }
 
-        fun setZoomEnabled(isEnabled: Boolean): PdfViewer.Builder {
+        fun setZoomEnabled(isEnabled: Boolean): Builder {
             this.isZoomEnabled = isEnabled
             return this
         }
 
-        fun setMaxZoom(maxZoom: Float): PdfViewer.Builder {
+        fun setMaxZoom(maxZoom: Float): Builder {
             this.maxZoom = maxZoom
             return this
         }
 
-        fun setOnPageChangedListener(onPageChangedListener: OnPageChangedListener): PdfViewer.Builder {
+        fun setOnPageChangedListener(onPageChangedListener: OnPageChangedListener): Builder {
             this.onPageChangedListener = onPageChangedListener
             return this
         }
 
-        fun quality(quality: PdfPageQuality): PdfViewer.Builder {
+        fun quality(quality: PdfPageQuality): Builder {
             this.quality = quality
             return this
         }
 
-        fun setOnErrorListener(onErrorListener: OnErrorListener): PdfViewer.Builder {
+        fun setOnErrorListener(onErrorListener: OnErrorListener): Builder {
             this.onErrorListener = onErrorListener
             return this
         }
